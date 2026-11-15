@@ -6,6 +6,7 @@ package modelo;
 
 /**
  *
+<<<<<<< HEAD
  * @author Heyerick-PC
  */
 public class Niveles {
