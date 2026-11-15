@@ -1,0 +1,35 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package modelo;
+
+import java.util.ArrayList;
+
+/**
+ *
+ * @author krisl
+ */
+public class Nivel3  extends Niveles{
+  
+ 
+   //Atributo
+    private ArrayList<String>
+            ejercicios = new ArrayList<>();
+
+    //Constructor
+
+    public Nivel3(String tipoNivel, String tipoDificultad, int puntos) {
+        super(tipoNivel, tipoDificultad, puntos);
+    }
+
+    
+    //Metodo
+    public void realizarEjercicios(){
+
+    }//Fin del metodo
+
+}//Fin de la clase       
+
+  
+
