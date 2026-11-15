@@ -6,14 +6,15 @@ package modelo;
 
 /**
  *
- * @author krisl
+ * @author Heyerick-PC
  */
 public class Niveles {
- //Atributos
+    
+    //Atributos
     private String tipoNivel;
     private String tipoDificultad;
     private int puntos;
-
+    
     //Constructor
 
     public Niveles(String tipoNivel, String tipoDificultad, int puntos) {
@@ -46,17 +47,17 @@ public class Niveles {
     public void setPuntos(int puntos) {
         this.puntos = puntos;
     }
-
+    
     public void nivelCompletado(){
-
+        
     }//Fin del metodo
-
+    
     public void respuestaCorrecta(){
-
+        
     }//Fin del metodo
-
+    
     public void verificarRespuesta(){
-
+        
     }//Fin del metodo
-
-}//Fin de la clase   
+    
+}//Fin de la clase
