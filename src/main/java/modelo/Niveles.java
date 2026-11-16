@@ -18,7 +18,11 @@ public abstract class Niveles {
     private String tipoDificultad;
     private int puntos;
 
-    //Constructor
+    //Constructor sin parametros 
+    public Niveles() {    
+    }
+
+    //Constructor con parametros
     public Niveles(String tipoNivel, String tipoDificultad, int puntos) {
         this.tipoNivel = tipoNivel;
         this.tipoDificultad = tipoDificultad;
