@@ -10,22 +10,49 @@ import java.util.ArrayList;
  *
  * @author krisl
  */
-public class  Nivel1  extends Niveles{
-   //Atributo
-    private ArrayList<String>
-            ejercicios = new ArrayList<>();
+public class  Nivel1 {
+ //Arreglos   
+private int[] respuestasCorrectas ={1,2,3,4,5};  
+private int[] respuestasJugador = new int[5];
+private ArrayList<String> preguntas = new ArrayList<>(){{
+    add("Cuanto es 4+4?");
+    add("Cunato es 9-5?");
+    add("Cuanto es 7+3?");
+    add("Cunato es 6-5?");
+    add("Cunato es 8-5?");
+    add("Cunato es 8-8?");
+}};
 
-    //Constructor
+private String[][] opciones = {
+    {"9","8","5","2"},
+    {"9","2","3","4"},
+    {"10","5","3","6"},
+    {"8","4","3","9"},
+    {"2","3","7","0",}
+};
+private int[][] Intentos = new int[3][5];
 
-    public Nivel1(String tipoNivel, String tipoDificultad, int puntos) {
-        super(tipoNivel, tipoDificultad, puntos);
-    }
+//Atributos
+private int numeroPreguntas;
+private int aciertos;
+private int puntosNivel;
+    
+//controlador
+public Nivel1() {
+     //Inicialisamos datos 
+      numeroPreguntas =0;
+      aciertos =0;
+      puntosNivel=0;
+  
+}
 
 
-    //Metodo
-    public void realizarEjercicios(){
 
-    }//Fin del metodo
+
+
+
+
+
 
 }//Fin de la clase   
 
