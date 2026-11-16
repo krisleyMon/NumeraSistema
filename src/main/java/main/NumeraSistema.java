@@ -4,6 +4,8 @@
 
 package main;
 
+import controlador.ControladorPortada;
+
 /**
  *
  * @author krisl
@@ -11,6 +13,8 @@ package main;
 public class NumeraSistema {
 
     public static void main(String[] args) {
+        ControladorPortada portada =new  ControladorPortada();
         
+        portada.inicio();
     }
 }
