@@ -72,6 +72,8 @@ public class Jugador {
   if(cantidad>0){
    puntos+=cantidad;
   }
+  
+  
  }//fin del metodo
  //Actualiza el nivel en el que se encuentra el usuario
  public void cambiarNivelJugador(int nivel){
