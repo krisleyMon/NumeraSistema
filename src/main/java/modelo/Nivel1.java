@@ -4,9 +4,6 @@
  */
 package modelo;
 
-import java.util.ArrayList;
-import javax.swing.JOptionPane;
-
 /**
  *
  * @author krisl
@@ -18,7 +15,7 @@ public class Nivel1 extends Niveles {
         desbloquear(); //Esto nos funciona para que el nivel1, salga desbloqueado desde el inicio, nivel 2 y 3, no lo tienen
     }//Fin metodo
     
-
+    
     //Abstract
     @Override
     public String getDificultad() {
@@ -29,6 +26,5 @@ public class Nivel1 extends Niveles {
     public String getOperaciones() {
         return "SUMAS Y RESTAS";
     }
-
 
 }//Fin de la clase   

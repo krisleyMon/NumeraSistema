@@ -9,5 +9,6 @@ package vista;
  * @author krisl
  */
 public class Vista {
+    
     // esta clase es provicional y no tiene utilidad simplemente es para visualiar el paquete vista en githud.
 }

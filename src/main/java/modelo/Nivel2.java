@@ -4,40 +4,26 @@
  */
 package modelo;
 
-import java.util.ArrayList;
 
 /**
  *
  * @author krisl
  */
-public class Nivel2 extends Niveles{
+public class Nivel2 extends Niveles {
 
     public Nivel2() {
-        super(2, 5); //Número de nivel 2 y cantidad de ejercicios 5
+        super(2,5);
     }
 
-    
-    
     @Override
     public String getDificultad() {
-    return "MEDIO";
+        return "MEDIO";
     }
 
     @Override
     public String getOperaciones() {
-    return "MULTIPLICACIONES";
+        return "MULTIPLICACIONES";
     }
- 
-
 
 }//Fin de la clase       
-
-
-
-
-
-
-
-
-
 

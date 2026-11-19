@@ -6,10 +6,8 @@ package modelo;
 
 /**
  *
- * <<<<<<< HEAD @a
  *
- *
- * uthor Heyerick-PC
+ * @author Heyerick-PC
  */
 public abstract class Niveles {
 
@@ -29,10 +27,6 @@ public abstract class Niveles {
         this.cantidadEjercicios = cantidadEjercicios;
         this.completado = false;
     }//Fin constructor
-    
-    public int getNumeroNivel() {    
-        return numeroNivel;
-    }
 
     //Get y set
     //Prefiero hacerlos todos por si más adelante los ocupamos, pero de momento usaré unos
