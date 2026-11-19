@@ -6,8 +6,10 @@ package modelo;
 
 /**
  *
- * @author krisl
+ * @author cisaa
  */
+
+ 
 public class Jugador {
    
     //Esté msj es una prueba, para cambiar lo que tenia en la rama, ya que tenía varios errores, por tener un conflicto con merge

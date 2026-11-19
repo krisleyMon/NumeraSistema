@@ -22,7 +22,7 @@ public class Nivel3 extends Niveles {
 
     @Override
     public String getOperaciones() {
-        return "MULTIPLICACIONES Y DIVISIONES";
+        return "SUMA, RESTA, MULTIPLICACIONES Y DIVISIONES";
     }
 
 }//Fin de la clase       
