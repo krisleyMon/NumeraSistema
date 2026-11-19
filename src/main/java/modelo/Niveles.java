@@ -6,55 +6,78 @@ package modelo;
 
 /**
  *
- * <<<<<<< HEAD
- * @a
+ * <<<<<<< HEAD @a
+ *
  *
  * uthor Heyerick-PC
  */
 public abstract class Niveles {
 
     //Atributos
-    private String tipoNivel;
-    private String tipoDificultad;
-    private int puntos;
+    private int numero;
+    private int cantidadEjercicios; //Está parte existe porque serán 5 preguntas
+    private boolean desbloqueado;
+    private boolean completado;
 
     //Constructor sin parametros 
-    public Niveles() {    
+    public Niveles() {
     }
 
     //Constructor con parametros
-    public Niveles(String tipoNivel, String tipoDificultad, int puntos) {
-        this.tipoNivel = tipoNivel;
-        this.tipoDificultad = tipoDificultad;
-        this.puntos = puntos;
+
+    public Niveles(int numero, int cantidadEjercicios) {
+        this.numero = numero;
+        this.cantidadEjercicios = cantidadEjercicios;
+        this.completado = false;
+    }//Fin constructor
+    public int getNumero() {    
+        return numero;
     }
 
     //Get y set
-    public String getTipoNivel() {
-        return tipoNivel;
+    //Prefiero hacerlos todos por si más adelante los ocupamos, pero de momento usaré unos
+    public void setNumero(int numero) {
+        this.numero = numero;
     }
 
-    public void setTipoNivel(String tipoNivel) {
-        this.tipoNivel = tipoNivel;
+    public int getCantidadEjercicios() {
+        return cantidadEjercicios;
     }
 
-    public String getTipoDificultad() {
-        return tipoDificultad;
+    public void setCantidadEjercicios(int cantidadEjercicios) {
+        this.cantidadEjercicios = cantidadEjercicios;
     }
 
-    public void setTipoDificultad(String tipoDificultad) {
-        this.tipoDificultad = tipoDificultad;
+    public boolean isDesbloqueado() {
+        return desbloqueado;
     }
 
-    public int getPuntos() {
-        return puntos;
+    public void setDesbloqueado(boolean desbloqueado) {
+        this.desbloqueado = desbloqueado;
     }
 
-    public void setPuntos(int puntos) {
-        this.puntos = puntos;
+    public boolean isCompletado() {
+        return completado;
     }
 
-    //Metodo abstracto
-    public abstract void realizarEjercicios();
+    public void setCompletado(boolean completado) { 
+        this.completado = completado;
+    }
 
+    //Esto permite jugar los niveles, ya que al inicio estos van a estgar bloqueados
+    public void desbloquear(){
+        desbloqueado = true;
+    }//Fin de metodo
+    
+    //Esto marca el nivel ya como desbloqueado
+    public void completado(){
+        completado = true;
+    }//Fin de metodo
+    
+    //Esto es para que cada hija tenga su propia difucultad y sus operaciones
+    //Metodos abstractos
+    public abstract String getDificultad();
+
+    public abstract String getOperaciones();
+    
 }//Fin de la clase

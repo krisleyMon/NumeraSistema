@@ -11,23 +11,21 @@ import java.util.ArrayList;
  * @author krisl
  */
 public class Nivel3  extends Niveles{
-  
- 
-   //Atributo
-    private ArrayList<String>
-            ejercicios = new ArrayList<>();
 
-    //Constructor
-
-    public Nivel3(String tipoNivel, String tipoDificultad, int puntos) {
-        super(tipoNivel, tipoDificultad, puntos);
+    public Nivel3() {
+        setNumero(3); //Nivel 3
+        setCantidadEjercicios(6);
     }
 
     
-    //Metodo
-    public void realizarEjercicios(){
+    @Override
+    public String getDificultad() {
+       return "DIFÍCIL";
+    }
 
-    }//Fin del metodo
+    @Override
+    public String getOperaciones() {
+       return "MULTIPLICACIONES Y DIVISIONES";}
 
 }//Fin de la clase       
 
