@@ -13,26 +13,48 @@ import java.awt.event.ActionListener;
 public class GUI_Juego extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(GUI_Juego.class.getName());
-
+ 
+    private PanelMulti panelMulti;
+    private java.awt.CardLayout tarjetas;
     /**
      * Creates new form GUI_Juego
      */
     public GUI_Juego() {
         initComponents();
+        configurarPaneles();
     }
     
-    public void addButtonListener(ActionListener listener){
-       
-        
-        btnVolver.setActionCommand("VOLVER");
-        //btnSiguiente.setActionCommand("SIGUIENTE");
-        
-       
-            
-        btnVolver.addActionListener(listener);
-       // btnSiguiente.addActionListener(listener);
-    }  
+    public void addButtonListener(ActionListener listener){ 
+        btnVolverMenu.setActionCommand("MENU");
+        btnAnterior.setActionCommand("ANTERIOR");
+        btnSiguiente.setActionCommand("SIGUIENTE");
 
+        btnVolverMenu.addActionListener(listener);
+        btnAnterior.addActionListener(listener);
+        btnSiguiente.addActionListener(listener);
+        panelMulti.addButtonListener(listener);
+    }
+
+    private void configurarPaneles() {
+        tarjetas = new java.awt.CardLayout();
+        pnlContenidoPregunta.setLayout(tarjetas);
+        panelMulti = new PanelMulti();
+        pnlContenidoPregunta.add(panelMulti, "MULTIPLE");
+    }
+
+    // Configura las opciones de respuesta múltiple.
+    public void mostrarOpciones(String[] opciones) {
+        panelMulti.mostrarOpciones(opciones);
+    }
+
+    // Obtiene la respuesta de opción múltiple.
+    public String obtenerRespuestaMultiple(int opcion) {
+        return panelMulti.obtenerRespuesta(opcion);
+    }
+
+    public void habilitarRespuestas(boolean habilitar) {
+        panelMulti.habilitarOpciones(habilitar);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -43,65 +65,71 @@ public class GUI_Juego extends javax.swing.JFrame {
     private void initComponents() {
 
         pnlBack = new javax.swing.JPanel();
-        btnVolver = new javax.swing.JButton();
-        btnOp1 = new javax.swing.JButton();
-        btnOp2 = new javax.swing.JButton();
-        btnOp3 = new javax.swing.JButton();
-        btnOp4 = new javax.swing.JButton();
+        btnSiguiente = new javax.swing.JButton();
+        btnAnterior = new javax.swing.JButton();
+        pnlContenidoPregunta = new javax.swing.JPanel();
+        lblOperacion = new javax.swing.JLabel();
+        lblPregunta = new javax.swing.JLabel();
+        btnVolverMenu = new javax.swing.JButton();
         lblPanel = new javax.swing.JLabel();
         lblFondo = new javax.swing.JLabel();
-        pnlPreguntas = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         pnlBack.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnVolver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Menu.png"))); // NOI18N
-        btnVolver.setBorderPainted(false);
-        btnVolver.setContentAreaFilled(false);
-        btnVolver.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/images/MenuOff.png"))); // NOI18N
-        btnVolver.addActionListener(new java.awt.event.ActionListener() {
+        btnSiguiente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/SiguienteOff.png"))); // NOI18N
+        btnSiguiente.setBorderPainted(false);
+        btnSiguiente.setContentAreaFilled(false);
+        btnSiguiente.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/images/siguienteOn.png"))); // NOI18N
+        pnlBack.add(btnSiguiente, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 150, 90, 80));
+
+        btnAnterior.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/AnteriorOff (2).png"))); // NOI18N
+        btnAnterior.setBorderPainted(false);
+        btnAnterior.setContentAreaFilled(false);
+        btnAnterior.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/images/anteriorOn (2).png"))); // NOI18N
+        pnlBack.add(btnAnterior, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 90, 80));
+
+        pnlContenidoPregunta.setOpaque(false);
+        pnlContenidoPregunta.setPreferredSize(new java.awt.Dimension(269, 98));
+
+        javax.swing.GroupLayout pnlContenidoPreguntaLayout = new javax.swing.GroupLayout(pnlContenidoPregunta);
+        pnlContenidoPregunta.setLayout(pnlContenidoPreguntaLayout);
+        pnlContenidoPreguntaLayout.setHorizontalGroup(
+            pnlContenidoPreguntaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 269, Short.MAX_VALUE)
+        );
+        pnlContenidoPreguntaLayout.setVerticalGroup(
+            pnlContenidoPreguntaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 98, Short.MAX_VALUE)
+        );
+
+        pnlBack.add(pnlContenidoPregunta, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 170, -1, -1));
+
+        lblOperacion.setFont(new java.awt.Font("Showcard Gothic", 1, 48)); // NOI18N
+        lblOperacion.setText("6 + 7");
+        pnlBack.add(lblOperacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 90, 120, 70));
+
+        lblPregunta.setFont(new java.awt.Font("Showcard Gothic", 1, 12)); // NOI18N
+        lblPregunta.setText("Selecciona la respuesta correcta:");
+        pnlBack.add(lblPregunta, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 150, 240, 30));
+
+        btnVolverMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Menu.png"))); // NOI18N
+        btnVolverMenu.setBorderPainted(false);
+        btnVolverMenu.setContentAreaFilled(false);
+        btnVolverMenu.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/images/MenuOff.png"))); // NOI18N
+        btnVolverMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnVolverActionPerformed(evt);
+                btnVolverMenuActionPerformed(evt);
             }
         });
-        pnlBack.add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 340, -1, 60));
-
-        btnOp1.setText("jButton1");
-        btnOp1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnOp1ActionPerformed(evt);
-            }
-        });
-        pnlBack.add(btnOp1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 200, -1, -1));
-
-        btnOp2.setText("jButton2");
-        pnlBack.add(btnOp2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 200, -1, -1));
-
-        btnOp3.setText("jButton3");
-        pnlBack.add(btnOp3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 240, -1, -1));
-
-        btnOp4.setText("jButton4");
-        pnlBack.add(btnOp4, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 240, -1, -1));
+        pnlBack.add(btnVolverMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 340, -1, 60));
 
         lblPanel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Panelito.png"))); // NOI18N
         pnlBack.add(lblPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 40, -1, -1));
 
         lblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fondo0.png"))); // NOI18N
         pnlBack.add(lblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
-
-        javax.swing.GroupLayout pnlPreguntasLayout = new javax.swing.GroupLayout(pnlPreguntas);
-        pnlPreguntas.setLayout(pnlPreguntasLayout);
-        pnlPreguntasLayout.setHorizontalGroup(
-            pnlPreguntasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 170, Short.MAX_VALUE)
-        );
-        pnlPreguntasLayout.setVerticalGroup(
-            pnlPreguntasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 80, Short.MAX_VALUE)
-        );
-
-        pnlBack.add(pnlPreguntas, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 90, 170, 80));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -117,13 +145,9 @@ public class GUI_Juego extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
+    private void btnVolverMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverMenuActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnVolverActionPerformed
-
-    private void btnOp1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOp1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnOp1ActionPerformed
+    }//GEN-LAST:event_btnVolverMenuActionPerformed
 
     /**
      * @param args the command line arguments
@@ -151,14 +175,14 @@ public class GUI_Juego extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnOp1;
-    private javax.swing.JButton btnOp2;
-    private javax.swing.JButton btnOp3;
-    private javax.swing.JButton btnOp4;
-    private javax.swing.JButton btnVolver;
+    private javax.swing.JButton btnAnterior;
+    private javax.swing.JButton btnSiguiente;
+    private javax.swing.JButton btnVolverMenu;
     private javax.swing.JLabel lblFondo;
+    private javax.swing.JLabel lblOperacion;
     private javax.swing.JLabel lblPanel;
+    private javax.swing.JLabel lblPregunta;
     private javax.swing.JPanel pnlBack;
-    private javax.swing.JPanel pnlPreguntas;
+    private javax.swing.JPanel pnlContenidoPregunta;
     // End of variables declaration//GEN-END:variables
 }

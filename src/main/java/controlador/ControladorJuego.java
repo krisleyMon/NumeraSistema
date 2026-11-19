@@ -29,17 +29,7 @@ public class ControladorJuego implements ActionListener{
     public void actionPerformed(ActionEvent e) {
          String op =e.getActionCommand();
        switch(op){
-           case "OP1":
-               break;
-           case "OP2":
-               break;
-           case "OP3":
-               break;
-           case "OP4":
-               break; 
-            case "SIGUIENTE":
-               break;   
-             case "VOLVER":
+           case "MENU":
                  volverMenu();
                break;    
     }
