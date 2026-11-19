@@ -11,23 +11,34 @@ import java.util.ArrayList;
  * @author krisl
  */
 public class Nivel2 extends Niveles{
- 
-   //Atributo
-    private ArrayList<String>
-            ejercicios = new ArrayList<>();
 
-    //Constructor
-
-    public Nivel2(String tipoNivel, String tipoDificultad, int puntos) {
-        super(tipoNivel, tipoDificultad, puntos);
+    public Nivel2() {
+        setNumero(2); //Nivel 2
+        setCantidadEjercicios(5);
     }
 
     
+    
+    @Override
+    public String getDificultad() {
+    return "MEDIO";
+    }
 
-    //Metodo
-    public void realizarEjercicios(){
+    @Override
+    public String getOperaciones() {
+    return "MULTIPLICACIONES";
+    }
 
-    }//Fin del metodo
+
+
+    @Override
+    public boolean ValidarRespuesta(String respuesta) {
+        
+        return false;
+        
+    }
+ 
+
 
 }//Fin de la clase       
 

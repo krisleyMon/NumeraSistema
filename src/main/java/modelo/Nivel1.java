@@ -4,6 +4,7 @@
  */
 package modelo;
 
+
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
@@ -12,25 +13,57 @@ import javax.swing.JOptionPane;
  * @author krisl
  */
 
+
 public class Nivel1 extends Niveles{
  //Arreglos     
-private int[] respuestasJugador = new int[5];
+
 private String[] opciones;
-private int[][] Intentos = new int[3][5];
 //Atributos
-private int aciertos;
+private String respuestasCorrectas;
 
-  
+    
+//Constructor con parametros
 
-
-@Override
-    public void realizarEjercicios() {
-        
+    public Nivel1(String[] opciones, String respuestasCorrectas, String pregunta) {
+       super();
+        this.opciones = opciones;
+        this.respuestasCorrectas = respuestasCorrectas;
+        setPregunta(pregunta);
     }
- 
+
+
+
+public Nivel1(){
+        setNumero(1); //Nivel 1
+        setCantidadEjercicios(5);
+        desbloquear(); //Esto nos funciona para que el nivel1, salga desbloqueado desde el inicio
+    }//Fin metodo
+
+    public String[] getOpciones() {
+        return opciones;
+    }
     
+
+//Abstract
+    @Override
+    public String getDificultad() {
+        return "FÁCIL";
+    }
+
+    @Override
+    public String getOperaciones() {
+        return "SUMAS Y RESTAS";
+    }
+
+    @Override
+    public boolean ValidarRespuesta(String respuesta) {
+        return respuestasCorrectas.equals(respuesta);
+    }
+
     
+
     
-    
+
+
 
 }//Fin de la clase   
