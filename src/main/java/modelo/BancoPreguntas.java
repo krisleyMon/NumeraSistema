@@ -8,6 +8,10 @@ package modelo;
  *
  * @author krisl
  */
-public class Vidas {
+public class BancoPreguntas {
+  
+    
+    
+    
     
 }

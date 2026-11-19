@@ -16,7 +16,7 @@ public class Jugador {
  private int vidas;
  private int puntos;
  private int nivelActual;
-
+ private int racha;
   //Inicializamos la informacion del jugador con la dstos iniciales  
  public Jugador(String nombre, int edad, int vidas, int puntos, int nivelActual) {
         this.nombre = nombre;
@@ -24,7 +24,8 @@ public class Jugador {
         this.vidas = 3;
         this.puntos = 0;
         this.nivelActual = 1;
-    }
+        this.racha =0;
+ }
 
   //odtener informacion del jugador 
     
