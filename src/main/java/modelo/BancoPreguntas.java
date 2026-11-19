@@ -10,8 +10,23 @@ package modelo;
  */
 public class BancoPreguntas {
   
+  private Niveles[][] nivel = new Niveles[3][5];
+
+    public BancoPreguntas() {
+    cargarPreguntas();
+    }
+  
+  
+  
+  
+  
+  private void cargarPreguntas(){
+      
+  }
     
+private void mostrarPreguntas(){
     
+}    
     
     
 }

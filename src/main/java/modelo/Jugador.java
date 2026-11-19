@@ -10,6 +10,7 @@ package modelo;
  */
 public class Jugador {
    
+    //Esté msj es una prueba, para cambiar lo que tenia en la rama, ya que tenía varios errores, por tener un conflicto con merge
  private String nombre;
  private int edad;
  private int vidas;
@@ -72,6 +73,8 @@ public class Jugador {
   if(cantidad>0){
    puntos+=cantidad;
   }
+  
+  
  }//fin del metodo
  //Actualiza el nivel en el que se encuentra el usuario
  public void cambiarNivelJugador(int nivel){

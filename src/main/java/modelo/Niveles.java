@@ -6,17 +6,23 @@ package modelo;
 
 /**
  *
- * @author Heyerick-PC
+ * 
+ * @a
+ *
+ * uthor Heyerick-PC
  */
-public class Niveles {
-    
+public abstract class Niveles {
+
     //Atributos
     private String tipoNivel;
     private String tipoDificultad;
     private int puntos;
-    
-    //Constructor
 
+    //Constructor sin parametros 
+    public Niveles() {    
+    }
+
+    //Constructor con parametros
     public Niveles(String tipoNivel, String tipoDificultad, int puntos) {
         this.tipoNivel = tipoNivel;
         this.tipoDificultad = tipoDificultad;
@@ -47,17 +53,8 @@ public class Niveles {
     public void setPuntos(int puntos) {
         this.puntos = puntos;
     }
-    
-    public void nivelCompletado(){
-        
-    }//Fin del metodo
-    
-    public void respuestaCorrecta(){
-        
-    }//Fin del metodo
-    
-    public void verificarRespuesta(){
-        
-    }//Fin del metodo
-    
+
+    //Metodo abstracto
+    public abstract void realizarEjercicios();
+
 }//Fin de la clase
