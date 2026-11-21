@@ -17,7 +17,7 @@ public abstract class Niveles implements Validar{
     private boolean desbloqueado;
     private boolean completado;
     private String pregunta;
-
+    
     //Constructor sin parametros 
     public Niveles() {
     }
