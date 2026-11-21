@@ -23,13 +23,13 @@ public class BancoPreguntas {
    String[] opciones1 ={"1","9","10","8"};
    String[] opciones2 ={"7","4","9","2"};
    String[] opciones3 ={"8","7","9","12"};
-   String[] opciones4 ={"8","7","9","12"};
+   String[] opciones4 ={"8","7","9","4"};
    String[] opciones5 ={"11","12","5","2"};
   
    nivel[0][0] = new Nivel1(opciones1,"9","Cuanto es 5+4 ?");
    nivel[0][1] = new Nivel1(opciones2,"4","Cuanto es 10-6?");
    nivel[0][2] = new Nivel1(opciones3,"12","Cuanto es 10+2?");
-   nivel[0][3] = new Nivel1(opciones4,"12","Cuanto es 7-3?");
+   nivel[0][3] = new Nivel1(opciones4,"4","Cuanto es 7-3?");
    nivel[0][4] = new Nivel1(opciones5,"11","Cuanto es 5+6'");
  //Fin del nivel 1
   

@@ -29,6 +29,17 @@ public class GUI_Instrucciones extends javax.swing.JFrame {
      btnVolver.addActionListener(listener);
        
     }
+   
+    public void InformacionUsuario(String informacion){
+      //Remplasa los saltos de linea  
+        String textoFormato = informacion.replace("\n","<br>");
+        //se  ajusta segun el ancho de la ventana 
+        lblIntrcionesUsuario.setText("<html><div style='width: 320px; text-align: center;'>" 
+        + textoFormato
+        + "</div></html>"
+    );
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -39,6 +50,8 @@ public class GUI_Instrucciones extends javax.swing.JFrame {
     private void initComponents() {
 
         pnlBack = new javax.swing.JPanel();
+        lblIntrcionesUsuario = new javax.swing.JLabel();
+        lblFondoInstruciones = new javax.swing.JLabel();
         btnVolver = new javax.swing.JButton();
         lblFondo = new javax.swing.JLabel();
 
@@ -47,6 +60,13 @@ public class GUI_Instrucciones extends javax.swing.JFrame {
 
         pnlBack.setPreferredSize(new java.awt.Dimension(640, 400));
         pnlBack.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblIntrcionesUsuario.setFont(new java.awt.Font("Gill Sans Ultra Bold Condensed", 0, 12)); // NOI18N
+        lblIntrcionesUsuario.setText("Intruciones");
+        pnlBack.add(lblIntrcionesUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 10, 390, 310));
+
+        lblFondoInstruciones.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Panelito.png"))); // NOI18N
+        pnlBack.add(lblFondoInstruciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 20, 360, 310));
 
         btnVolver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/BackOn.png"))); // NOI18N
         btnVolver.setBorderPainted(false);
@@ -80,6 +100,8 @@ public class GUI_Instrucciones extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnVolver;
     private javax.swing.JLabel lblFondo;
+    private javax.swing.JLabel lblFondoInstruciones;
+    private javax.swing.JLabel lblIntrcionesUsuario;
     private javax.swing.JPanel pnlBack;
     // End of variables declaration//GEN-END:variables
 }
