@@ -6,74 +6,79 @@ package modelo;
 
 /**
  *
- * @author cisaa
+ * @author krisl
  */
 public class Jugador {
-    
-    //Atributos del Jugador
+
+    //Esté msj es una prueba, para cambiar lo que tenia en la rama, ya que tenía varios errores, por tener un conflicto con merge
     private String nombre;
     private int edad;
-    private boolean[] vidas;
-    private int racha;
+    private int vidas;
+    private int puntos;
     private int nivelActual;
-    
-    //Contructir vacio 
+    private int racha;
+    //Inicializamos la informacion del jugador con la dstos iniciales  
 
-    public Jugador() {
-    }
-    
-    //Contructor con parametros 
-
-    public Jugador(String nombre, int edad, boolean[] vidas, int racha, int nivelActual) {
+    public Jugador(String nombre, int edad, int vidas, int puntos, int nivelActual) {
         this.nombre = nombre;
         this.edad = edad;
-        this.vidas = vidas;
-        this.racha = racha;
-        this.nivelActual = nivelActual;
+        this.vidas = 3;
+        this.puntos = 0;
+        this.nivelActual = 1;
+        this.racha = 0;
     }
-    
-    //Sets y gets
 
+    //odtener informacion del jugador 
     public String getNombre() {
         return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
     }
 
     public int getEdad() {
         return edad;
     }
 
-    public void setEdad(int edad) {
-        this.edad = edad;
-    }
-
-    public boolean[] getVidas() {
+    public int getVidas() {
         return vidas;
     }
 
-    public void setVidas(boolean[] vidas) {
-        this.vidas = vidas;
-    }
-
-    public int getRacha() {
-        return racha;
-    }
-
-    public void setRacha(int racha) {
-        this.racha = racha;
+    public int getPuntos() {
+        return puntos;
     }
 
     public int getNivelActual() {
         return nivelActual;
     }
 
-    public void setNivelActual(int nivelActual) {
-        this.nivelActual = nivelActual;
-    }
-    
-    
-    
-}
+    //modificar informacion del jugador 
+    //suma una vida al jugador solo si las vidas que tiene son menos de tres 
+    public void agregarvida() {
+        if (vidas < 3) {
+            vidas++;
+        }
+    }//fin del metodo
+
+    //Disminuye  la cantida de vidas solo si las vidas son mas de 0 
+    public void quitarvida() {
+        if (vidas > 0) {
+            vidas--;
+        }
+
+    }//Fin del metodo
+
+    //Agrega y acumula los puntos que odtenga el jugador luego de completar algun nivel.
+    public void agregarPuntos(int cantidad) {
+        if (cantidad > 0) {
+            puntos += cantidad;
+        }
+
+    }//fin del metodo
+    //Actualiza el nivel en el que se encuentra el usuario
+
+    public void cambiarNivelJugador(int nivel) {
+        if (nivel >= 1 && nivel <= 3) {
+            nivelActual = nivel;
+        }
+
+    }//fin del metodo 
+
+}//Fin de la calse jugador

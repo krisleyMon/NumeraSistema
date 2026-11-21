@@ -6,6 +6,9 @@ package controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import modelo.BancoPreguntas;
+import modelo.Nivel1;
+import modelo.Niveles;
 import vista.GUI_Juego;
 import vista.GUI_Portada;
 
@@ -17,14 +20,38 @@ public class ControladorJuego implements ActionListener{
     
      private GUI_Juego vistaJuego;
     private GUI_Portada vista;
-
+    private BancoPreguntas  banco;
+    private Niveles preguntaActual;
+  
     public ControladorJuego(GUI_Juego vistaJuego, GUI_Portada vista) {
         this.vistaJuego = vistaJuego;
         this.vista = vista;
+        banco = new BancoPreguntas();
+        banco.cargarPreguntas();
         
         vistaJuego.addButtonListener(this);
+   
+       cargarPregunta();
+        
     }
 
+   public void cargarPregunta(){
+    preguntaActual = banco.obtenerPreguntas(0, 0);
+  
+     Nivel1 pregunta = (Nivel1) preguntaActual;
+
+    vistaJuego.mostrarPregunta(preguntaActual.getPregunta());
+
+    vistaJuego.mostrarOpciones(pregunta.getOpciones());     
+    
+   
+   }
+    
+    
+    
+    
+    
+    
     @Override
     public void actionPerformed(ActionEvent e) {
          String op =e.getActionCommand();
