@@ -61,23 +61,32 @@ public class GUI_Instrucciones extends javax.swing.JFrame {
         pnlBack.setPreferredSize(new java.awt.Dimension(640, 400));
         pnlBack.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblIntrcionesUsuario.setFont(new java.awt.Font("Gill Sans Ultra Bold Condensed", 0, 12)); // NOI18N
+        lblIntrcionesUsuario.setFont(new java.awt.Font("Gill Sans Ultra Bold Condensed", 0, 14)); // NOI18N
         lblIntrcionesUsuario.setText("Intruciones");
-        pnlBack.add(lblIntrcionesUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 10, 390, 310));
+        lblIntrcionesUsuario.setMaximumSize(new java.awt.Dimension(48, 116));
+        lblIntrcionesUsuario.setMinimumSize(new java.awt.Dimension(48, 16));
+        pnlBack.add(lblIntrcionesUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 20, 390, 310));
 
-        lblFondoInstruciones.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Panelito.png"))); // NOI18N
-        pnlBack.add(lblFondoInstruciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 20, 360, 310));
+        lblFondoInstruciones.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Expli.png"))); // NOI18N
+        pnlBack.add(lblFondoInstruciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 10, 440, 330));
 
         btnVolver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/BackOn.png"))); // NOI18N
         btnVolver.setBorderPainted(false);
         btnVolver.setContentAreaFilled(false);
+        btnVolver.setMaximumSize(new java.awt.Dimension(29, 29));
+        btnVolver.setMinimumSize(new java.awt.Dimension(29, 29));
         btnVolver.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/images/BackOff.png"))); // NOI18N
-        pnlBack.add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 310, -1, 60));
+        btnVolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVolverActionPerformed(evt);
+            }
+        });
+        pnlBack.add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 340, 160, 50));
 
         lblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fondo0.png"))); // NOI18N
         lblFondo.setText("jLabel1");
         lblFondo.setPreferredSize(new java.awt.Dimension(640, 400));
-        pnlBack.add(lblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, -1));
+        pnlBack.add(lblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -30, 590, 450));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -87,11 +96,15 @@ public class GUI_Instrucciones extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlBack, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(pnlBack, javax.swing.GroupLayout.PREFERRED_SIZE, 408, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnVolverActionPerformed
 
     /**
      * @param args the command line arguments
