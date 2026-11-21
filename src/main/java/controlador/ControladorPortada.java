@@ -6,6 +6,7 @@ package controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import vista.GUI_Explicacion;
 import vista.GUI_Instrucciones;
 import vista.GUI_Juego;
 import vista.GUI_Portada;
@@ -28,7 +29,7 @@ public class ControladorPortada implements ActionListener{
         String op =e.getActionCommand();
         switch(op){
             case "JUGAR":
-                abrirJuego();
+                abrirPiramide();
                break; 
             case "SALIR":
                 System.exit(0);
@@ -54,13 +55,13 @@ public class ControladorPortada implements ActionListener{
    vistaInstruc.setVisible(true);
  }   
  
- public void abrirJuego(){
-    GUI_Juego vistaJuego =new  GUI_Juego(); 
-    ControladorJuego controlador = new ControladorJuego(vistaJuego, vista); 
+ public void abrirPiramide(){
+    GUI_Explicacion vistaExpli =new  GUI_Explicacion(); 
+    ControladorExplicacion controlador = new ControladorExplicacion(vistaExpli, vista); 
      
    vista.setVisible(false);
-   vistaJuego.setLocationRelativeTo(null);
-   vistaJuego.setVisible(true);
+   vistaExpli.setLocationRelativeTo(null);
+   vistaExpli.setVisible(true);
  }   
  
 }
