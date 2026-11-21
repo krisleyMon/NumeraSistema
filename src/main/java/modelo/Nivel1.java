@@ -14,35 +14,28 @@ import javax.swing.JOptionPane;
  */
 
 
-public class Nivel1 extends Niveles{
- //Arreglos     
+public class Nivel1 extends Niveles {
+    //Arreglos     
 
-private String[] opciones;
+    private String[] opciones;
 //Atributos
-private String respuestasCorrectas;
+    private String respuestasCorrectas;
 
-    
 //Constructor con parametros
-
     public Nivel1(String[] opciones, String respuestasCorrectas, String pregunta) {
-       super();
+        super();
         this.opciones = opciones;
         this.respuestasCorrectas = respuestasCorrectas;
         setPregunta(pregunta);
     }
 
-
-
-public Nivel1(){
-        setNumero(1); //Nivel 1
-        setCantidadEjercicios(5);
-        desbloquear(); //Esto nos funciona para que el nivel1, salga desbloqueado desde el inicio
+    public Nivel1() {
+        
     }//Fin metodo
 
     public String[] getOpciones() {
         return opciones;
     }
-    
 
 //Abstract
     @Override
@@ -59,11 +52,5 @@ public Nivel1(){
     public boolean ValidarRespuesta(String respuesta) {
         return respuestasCorrectas.equals(respuesta);
     }
-
-    
-
-    
-
-
 
 }//Fin de la clase   
