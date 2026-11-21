@@ -22,7 +22,7 @@ public class Nivel2 extends Niveles {
         this.opciones = opciones;
         this.respuestasCorrectas = respuestasCorrectas;
         setPregunta(pregunta);
-        desbloquear();
+        //Acá no va desbloquear
     }
 
     public Nivel2() {
