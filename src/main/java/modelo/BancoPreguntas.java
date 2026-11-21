@@ -18,7 +18,7 @@ public class BancoPreguntas {
     }
   
   //se encarga de cargar las preguntas de los diferentes niveles 
-  private void cargarPreguntas(){
+  public void cargarPreguntas(){
   //Nivel 1 
    String[] opciones1 ={"1","9","10","8"};
    String[] opciones2 ={"7","4","9","2"};
@@ -37,7 +37,7 @@ public class BancoPreguntas {
   
   }//Fin del metodo
     
-private Niveles obtenerPreguntas(int nivelActual,int numero){
+public  Niveles obtenerPreguntas(int nivelActual,int numero){
 
  return  nivel[nivelActual][numero];
  

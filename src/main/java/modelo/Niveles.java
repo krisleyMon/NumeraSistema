@@ -28,7 +28,7 @@ public abstract class Niveles implements Validar{
             this.numero = numero;
             this.cantidadEjercicios = cantidadEjercicios;
             this.desbloqueado = desbloqueado;
-            this.completado = completado;
+            this.completado = false;
             this.pregunta = pregunta;
         }
 
