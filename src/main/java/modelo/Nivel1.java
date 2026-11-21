@@ -4,19 +4,30 @@
  */
 package modelo;
 
-/**
- *
- * @author krisl
- */
 public class Nivel1 extends Niveles {
+    //Arreglos 
+    private String[] opciones;
+//Atributos
+    private String respuestasCorrectas;
 
-    public Nivel1(){
-        super(1, 5); //Número de nivel 1 y cantidad de ejercicios 5
-        desbloquear(); //Esto nos funciona para que el nivel1, salga desbloqueado desde el inicio, nivel 2 y 3, no lo tienen
-    }//Fin metodo
-    
-    
-    //Abstract
+//Constructor con parametros
+    public Nivel1(String[] opciones, String respuestasCorrectas, String pregunta) {
+        super(1, 5, pregunta);
+        this.opciones = opciones;
+        this.respuestasCorrectas = respuestasCorrectas;
+        setPregunta(pregunta);
+        desbloquear();
+    }
+
+    public Nivel1() {
+        super(1, 5, "");
+        desbloquear(); //Esto nos funciona para que el nivel1, salga desbloqueado desde el inicio
+    }
+
+    public String[] getOpciones(){
+        return opciones;
+    }
+//Abstract
     @Override
     public String getDificultad() {
         return "FÁCIL";
@@ -29,6 +40,6 @@ public class Nivel1 extends Niveles {
 
     @Override
     public boolean ValidarRespuesta(String respuesta) {
+        return respuestasCorrectas.equals(respuesta);
     }
-
-}//Fin de la clase   
+}

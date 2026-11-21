@@ -11,24 +11,41 @@ package modelo;
  */
 public class Nivel3 extends Niveles {
 
-    public Nivel3() {
-        super(2, 5); //Número de nivel 2 y cantidad de ejercicios 5
+ //Arreglos 
+    private String[] opciones;
+//Atributos
+    private String respuestasCorrectas;
+
+//Constructor con parametros
+    public Nivel3(String[] opciones, String respuestasCorrectas, String pregunta) {
+        super(3, 5, pregunta);
+        this.opciones = opciones;
+        this.respuestasCorrectas = respuestasCorrectas;
+        setPregunta(pregunta);
+        desbloquear();
     }
 
+    public Nivel3() {
+        super(1, 5, "");
+        desbloquear(); //Esto nos funciona para que el nivel1, salga desbloqueado desde el inicio
+    }
+
+    public String[] getOpciones(){
+        return opciones;
+    }
+//Abstract
     @Override
     public String getDificultad() {
-        return "DIFÍCIL";
+        return "DIFICIL";
     }
 
     @Override
     public String getOperaciones() {
-        return "SUMA, RESTA, MULTIPLICACIONES Y DIVISIONES";
+        return "SUMAS, RESTAS, MULPLICACIÓn Y DIVISIONES";
     }
 
     @Override
     public boolean ValidarRespuesta(String respuesta) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return respuestasCorrectas.equals(respuesta);
     }
-
-}//Fin de la clase       
-
+}

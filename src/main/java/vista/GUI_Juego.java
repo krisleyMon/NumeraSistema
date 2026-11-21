@@ -28,7 +28,7 @@ public class GUI_Juego extends javax.swing.JFrame {
         btnVolverMenu.setActionCommand("MENU");
         btnAnterior.setActionCommand("ANTERIOR");
         btnSiguiente.setActionCommand("SIGUIENTE");
-
+        
         btnVolverMenu.addActionListener(listener);
         btnAnterior.addActionListener(listener);
         btnSiguiente.addActionListener(listener);
@@ -55,6 +55,12 @@ public class GUI_Juego extends javax.swing.JFrame {
     public void habilitarRespuestas(boolean habilitar) {
         panelMulti.habilitarOpciones(habilitar);
     }
+  
+    public void mostrarPregunta(String pregunta){
+        lblOperacion.setText(pregunta);
+    }
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -106,9 +112,8 @@ public class GUI_Juego extends javax.swing.JFrame {
 
         pnlBack.add(pnlContenidoPregunta, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 170, -1, -1));
 
-        lblOperacion.setFont(new java.awt.Font("Showcard Gothic", 1, 48)); // NOI18N
-        lblOperacion.setText("6 + 7");
-        pnlBack.add(lblOperacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 90, 120, 70));
+        lblOperacion.setFont(new java.awt.Font("Showcard Gothic", 1, 18)); // NOI18N
+        pnlBack.add(lblOperacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 90, 240, 30));
 
         lblPregunta.setFont(new java.awt.Font("Showcard Gothic", 1, 12)); // NOI18N
         lblPregunta.setText("Selecciona la respuesta correcta:");

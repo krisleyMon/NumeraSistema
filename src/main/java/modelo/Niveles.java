@@ -9,7 +9,7 @@ package modelo;
  *
  * @author Heyerick-PC
  */
-public abstract class Niveles {
+public abstract class Niveles implements Validar{
 
     //Atributos
     private int numeroNivel; //Número de nivel
@@ -23,18 +23,19 @@ public abstract class Niveles {
     }
 
     //Constructor con parametros
-    public Niveles(int numeroNivel, int cantidadEjercicios, boolean desbloqueado, boolean completado, String pregunta) {
+    public Niveles(int numeroNivel, int cantidadEjercicios, String pregunta) {
         this.numeroNivel = numeroNivel;
         this.cantidadEjercicios = cantidadEjercicios;
-        this.desbloqueado = desbloqueado;
+        this.desbloqueado = false;
         this.completado = false;
         this.pregunta = pregunta;
     }
-    public int getNumeroNivel(){
+
+    public int getNumeroNivel() {
         return numeroNivel;
     }
 
-    public void setNumeroNivel(int numeroNivel) {    
+    public void setNumeroNivel(int numeroNivel) {
         this.numeroNivel = numeroNivel;
     }
 
@@ -66,28 +67,29 @@ public abstract class Niveles {
         return pregunta;
     }
 
-    //Get y set
-    //Prefiero hacerlos todos por si más adelante los ocupamos, pero de momento usaré unos
-    public void setPregunta(String pregunta) {    
+    public void setPregunta(String pregunta) {
         this.pregunta = pregunta;
     }
-
-    //Esto permite jugar los niveles, ya que al inicio estos van a estgar bloqueados
+    
+    
+    //Esto marca el nivel ya como desbloqueado
+    public void completado(){
+     completado = true;
+    }//Fin de metodo
+    
     public void desbloquear() {
         desbloqueado = true;
     } //Fin de metodo
     
-    //Esto marca el nivel ya como desbloqueado
-    public void completado(){
-        completado = true;
-    }//Fin de metodo
-    
     //Esto es para que cada hija tenga su propia difucultad y sus operaciones
+    
     //Metodos abstractos
     public abstract String getDificultad();
 
     public abstract String getOperaciones();
     
+    @Override
     public abstract boolean ValidarRespuesta(String respuesta);
     
+
 }//Fin de la clase
