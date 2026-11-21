@@ -16,21 +16,25 @@ public abstract class Niveles {
     private int cantidadEjercicios; //Está parte existe porque serán 5 preguntas
     private boolean desbloqueado;
     private boolean completado;
+    private String pregunta;
 
     //Constructor sin parametros 
     public Niveles() {
     }
 
     //Constructor con parametros
-    public Niveles(int numeroNivel, int cantidadEjercicios) {
+    public Niveles(int numeroNivel, int cantidadEjercicios, boolean desbloqueado, boolean completado, String pregunta) {
         this.numeroNivel = numeroNivel;
         this.cantidadEjercicios = cantidadEjercicios;
+        this.desbloqueado = desbloqueado;
         this.completado = false;
-    }//Fin constructor
+        this.pregunta = pregunta;
+    }
+    public int getNumeroNivel(){
+        return numeroNivel;
+    }
 
-    //Get y set
-    //Prefiero hacerlos todos por si más adelante los ocupamos, pero de momento usaré unos
-    public void setNumeroNivel(int numeroNivel) {
+    public void setNumeroNivel(int numeroNivel) {    
         this.numeroNivel = numeroNivel;
     }
 
@@ -54,14 +58,24 @@ public abstract class Niveles {
         return completado;
     }
 
-    public void setCompletado(boolean completado) { 
+    public void setCompletado(boolean completado) {
         this.completado = completado;
     }
 
+    public String getPregunta() {
+        return pregunta;
+    }
+
+    //Get y set
+    //Prefiero hacerlos todos por si más adelante los ocupamos, pero de momento usaré unos
+    public void setPregunta(String pregunta) {    
+        this.pregunta = pregunta;
+    }
+
     //Esto permite jugar los niveles, ya que al inicio estos van a estgar bloqueados
-    public void desbloquear(){
+    public void desbloquear() {
         desbloqueado = true;
-    }//Fin de metodo
+    } //Fin de metodo
     
     //Esto marca el nivel ya como desbloqueado
     public void completado(){
@@ -73,5 +87,7 @@ public abstract class Niveles {
     public abstract String getDificultad();
 
     public abstract String getOperaciones();
+    
+    public abstract boolean ValidarRespuesta(String respuesta);
     
 }//Fin de la clase

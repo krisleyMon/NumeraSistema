@@ -27,4 +27,8 @@ public class Nivel1 extends Niveles {
         return "SUMAS Y RESTAS";
     }
 
+    @Override
+    public boolean ValidarRespuesta(String respuesta) {
+    }
+
 }//Fin de la clase   

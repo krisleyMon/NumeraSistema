@@ -25,5 +25,10 @@ public class Nivel3 extends Niveles {
         return "SUMA, RESTA, MULTIPLICACIONES Y DIVISIONES";
     }
 
+    @Override
+    public boolean ValidarRespuesta(String respuesta) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
 }//Fin de la clase       
 
