@@ -8,7 +8,7 @@ package modelo;
  *
  * @author krisl
  */
-public class Jugador {
+public class Jugador { //Falta comprar vida
 
     //Esté msj es una prueba, para cambiar lo que tenia en la rama, ya que tenía varios errores, por tener un conflicto con merge
     private String nombre;
@@ -48,6 +48,10 @@ public class Jugador {
     public int getNivelActual() {
         return nivelActual;
     }
+    
+    public int getRacha(){
+        return racha;
+    }
 
     //modificar informacion del jugador 
     //suma una vida al jugador solo si las vidas que tiene son menos de tres 
@@ -62,9 +66,30 @@ public class Jugador {
         if (vidas > 0) {
             vidas--;
         }
-
+    }//Fin del metodo
+    
+    //Esto es para saber si el jugador tienen vidas, p
+    public boolean tieneVidas(){
+        return vidas > 0;
+    }//Fin del metodo
+    
+    //Esto reinicia las vidas a 3
+    public void reiniciarVidas(){
+        vidas = 3;
     }//Fin del metodo
 
+    //Esto le suma 5 puntos por cada respuesta correcta
+    public void respuestaCorrecta(){
+        agregarPuntos(5);
+        racha++;
+    }//Fin del metodo
+    
+    //Esto le quita una vida al jugador y reinicia la racha de respuestas correctas
+    public void respuestaIncorrecta(){
+        quitarvida();
+        racha = 0;
+    }//Fin del metodo
+    
     //Agrega y acumula los puntos que odtenga el jugador luego de completar algun nivel.
     public void agregarPuntos(int cantidad) {
         if (cantidad > 0) {
@@ -73,11 +98,10 @@ public class Jugador {
 
     }//fin del metodo
     //Actualiza el nivel en el que se encuentra el usuario
-
     public void cambiarNivelJugador(int nivel) {
         if (nivel >= 1 && nivel <= 3) {
             nivelActual = nivel;
-        }
+        }//Fin if
 
     }//fin del metodo 
 

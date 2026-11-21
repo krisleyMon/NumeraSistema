@@ -60,6 +60,12 @@ public class GUI_Juego extends javax.swing.JFrame {
         lblOperacion.setText(pregunta);
     }
     
+    public void mostrarInformacion(String nivel, int puntos, int vidas, int racha){
+        lblNivel.setText(nivel); 
+        lblPuntos.setText("Puntos: " + puntos);
+        lblVidas.setText("Vidas: "+ vidas);
+        lblRacha.setText("Racha: "+ racha);
+    }
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -74,6 +80,11 @@ public class GUI_Juego extends javax.swing.JFrame {
         btnSiguiente = new javax.swing.JButton();
         btnAnterior = new javax.swing.JButton();
         pnlContenidoPregunta = new javax.swing.JPanel();
+        lblFondoVidas = new javax.swing.JLabel();
+        lblVidas = new javax.swing.JLabel();
+        lblRacha = new javax.swing.JLabel();
+        lblPuntos = new javax.swing.JLabel();
+        lblNivel = new javax.swing.JLabel();
         lblOperacion = new javax.swing.JLabel();
         lblPregunta = new javax.swing.JLabel();
         btnVolverMenu = new javax.swing.JButton();
@@ -94,6 +105,11 @@ public class GUI_Juego extends javax.swing.JFrame {
         btnAnterior.setBorderPainted(false);
         btnAnterior.setContentAreaFilled(false);
         btnAnterior.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/images/anteriorOn (2).png"))); // NOI18N
+        btnAnterior.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAnteriorActionPerformed(evt);
+            }
+        });
         pnlBack.add(btnAnterior, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 90, 80));
 
         pnlContenidoPregunta.setOpaque(false);
@@ -112,12 +128,32 @@ public class GUI_Juego extends javax.swing.JFrame {
 
         pnlBack.add(pnlContenidoPregunta, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 170, -1, -1));
 
-        lblOperacion.setFont(new java.awt.Font("Showcard Gothic", 1, 18)); // NOI18N
-        pnlBack.add(lblOperacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 90, 240, 30));
+        lblFondoVidas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/imagen de vidas.png"))); // NOI18N
+        lblFondoVidas.setText("jLabel1");
+        pnlBack.add(lblFondoVidas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 80, 30));
 
-        lblPregunta.setFont(new java.awt.Font("Showcard Gothic", 1, 12)); // NOI18N
+        lblVidas.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
+        lblVidas.setText("Vida");
+        pnlBack.add(lblVidas, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
+
+        lblRacha.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
+        lblRacha.setText("Racha");
+        pnlBack.add(lblRacha, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 10, -1, -1));
+
+        lblPuntos.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
+        lblPuntos.setText("Puntos");
+        pnlBack.add(lblPuntos, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, -1, -1));
+
+        lblNivel.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
+        lblNivel.setText("Nivel");
+        pnlBack.add(lblNivel, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 10, -1, -1));
+
+        lblOperacion.setFont(new java.awt.Font("Showcard Gothic", 1, 18)); // NOI18N
+        pnlBack.add(lblOperacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 130, 240, 30));
+
+        lblPregunta.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 18)); // NOI18N
         lblPregunta.setText("Selecciona la respuesta correcta:");
-        pnlBack.add(lblPregunta, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 150, 240, 30));
+        pnlBack.add(lblPregunta, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 100, 270, 30));
 
         btnVolverMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Menu.png"))); // NOI18N
         btnVolverMenu.setBorderPainted(false);
@@ -154,6 +190,10 @@ public class GUI_Juego extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnVolverMenuActionPerformed
 
+    private void btnAnteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnteriorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAnteriorActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -184,9 +224,14 @@ public class GUI_Juego extends javax.swing.JFrame {
     private javax.swing.JButton btnSiguiente;
     private javax.swing.JButton btnVolverMenu;
     private javax.swing.JLabel lblFondo;
+    private javax.swing.JLabel lblFondoVidas;
+    private javax.swing.JLabel lblNivel;
     private javax.swing.JLabel lblOperacion;
     private javax.swing.JLabel lblPanel;
     private javax.swing.JLabel lblPregunta;
+    private javax.swing.JLabel lblPuntos;
+    private javax.swing.JLabel lblRacha;
+    private javax.swing.JLabel lblVidas;
     private javax.swing.JPanel pnlBack;
     private javax.swing.JPanel pnlContenidoPregunta;
     // End of variables declaration//GEN-END:variables

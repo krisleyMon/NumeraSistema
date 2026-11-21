@@ -35,22 +35,13 @@ public class ControladorJuego implements ActionListener {
         this.vistaJuego = vistaJuego;
         this.vista = vista;
         banco = new BancoPreguntas();
-        banco.cargarPreguntas();
-
+        jugador = new Jugador("JUGADOR", 0, 3, 0, 1);
         piramide = new Piramide();
         //Falta para pedir nombre
 
         vistaJuego.addButtonListener(this);
-
         cargarPregunta();
-    }
-
-
-    private void actualizarInformacion() {
-        Niveles nivel = piramide.obtenerNivel(nivelActual + 1);
-
-        //
-    }//Fin del metodo
+    }//Fin constructor
 
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -63,19 +54,19 @@ public class ControladorJuego implements ActionListener {
                 responder(vistaJuego.obtenerRespuestaMultiple(1));
                 break;
             case "OP2":
-                responder(vistaJuego.obtenerRespuestaMultiple(1));
+                responder(vistaJuego.obtenerRespuestaMultiple(2));
                 break;
             case "OP3":
-                responder(vistaJuego.obtenerRespuestaMultiple(1));
+                responder(vistaJuego.obtenerRespuestaMultiple(3));
                 break;
             case "OP4":
-                responder(vistaJuego.obtenerRespuestaMultiple(1));
+                responder(vistaJuego.obtenerRespuestaMultiple(4));
                 break;
             case "SIGUIENTE":
-                //Siguiente
+                //Siguiente ****
                 break;
         }//Fin switch
-    }
+    }//Fin metodo
 
     public void volverMenu() {
         vistaJuego.dispose();
@@ -92,50 +83,60 @@ public class ControladorJuego implements ActionListener {
         vistaJuego.habilitarRespuestas(false);
 
         if (preguntaActual.ValidarRespuesta(respuesta)) {
-            //jugador.respuestaCorrecta(); //Falta
+            jugador.respuestaCorrecta(); //Falta vista o joptionpane
 
         } else {
-            //jugador.respuestaIncorrecta(); //Falta
-
-            //Falta conectar cuando una respuesta es incorrecta, y si va a ser vista o joptionPane
+            jugador.respuestaIncorrecta(); //Falta vista o joptionpane
+            //Falta no comprendo del todo
         }//Fin else
 
-//        actualizarInformacion();
-//        
-//        if(!jugador.tieneVidas()){ //Si el jugador no tiene vidas esto reinicia el nivel
-//            reiniciarNivel();
-//        
-//        }else if (numeroPregunta == preguntaActual.getCantidadEjercicios() -1){
-//            terminarNivel();
-//        }
+        actualizarInformacion();
+        if (!jugador.tieneVidas()) { //Si el jugador no tiene vidas esto reinicia el nivel
+            reiniciarNivel();
+        } else if (numeroPregunta == preguntaActual.getCantidadEjercicios() - 1) {
+            terminarNivel();
+        }//Fin de if else
     }//Fin metodo
-    
-    public void cargarPregunta() {
-        //preguntaActual = banco.obtenerPreguntas(0, 0); //Esto carga solo la pregunta 1
-        //preguntaActual = banco.obtenerPreguntas(preguntaActual, numeroPregunta);
 
-        Nivel1 pregunta = (Nivel1) preguntaActual;
+    public void cargarPregunta() {
+        preguntaActual = banco.obtenerPreguntas(nivelActual, numeroPregunta);
 
         vistaJuego.mostrarPregunta(preguntaActual.getPregunta());
-        vistaJuego.mostrarOpciones(pregunta.getOpciones());
+        vistaJuego.mostrarOpciones(preguntaActual.getOpciones());
         vistaJuego.habilitarRespuestas(true);
 
         preguntaRespondida = false;
-        //a
-        //
+        actualizarInformacion();
     }//FIN cargarPregunta
+
+    private void actualizarInformacion() {
+        Niveles nivel = piramide.obtenerNivel(nivelActual + 1);
+        vistaJuego.mostrarInformacion("NIVEL " + nivel.getNumeroNivel() + " - " + nivel.getDificultad(),
+                jugador.getPuntos(), jugador.getVidas(), jugador.getRacha());
+    }//Fin metodo
+
+    private void siguientePregunta(){
+        if(!preguntaRespondida){
+            return;
+        }//Fin if
+        
+        numeroPregunta++;
+        cargarPregunta();
+    }//Fin metodo
     
     //Esto para cuando el jugador se queda sin vidas, se debe de reiniciar el nivel actual
-    private void reiniciarNivel(){
-        //Debemos elegir si es joptionPane o vista
-        //Y metodos
+    private void reiniciarNivel() {
+        //Debemos elegir si es joptionPane o vista *****
+        jugador.reiniciarVidas();
+        numeroPregunta = 0;
+        cargarPregunta();
     }//Fin metodo
 
     private void terminarNivel() {
         piramide.completarNivel(nivelActual + 1); //Desbloquea el siguiente nivel
         jugador.agregarvida(); //Esto es para su vida extra
 
-        //Debemos elegir si es joptionPane o vista
+        //Debemos elegir si es joptionPane o vista *****
         volverMenu();
     }//Fin metodo
 
