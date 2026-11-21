@@ -13,6 +13,7 @@ public class NumeraSistema {
         ControladorPortada portada =new  ControladorPortada();
         
         portada.inicio();
+
     }
 }//Fin clase
 
