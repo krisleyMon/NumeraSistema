@@ -80,11 +80,15 @@ public class GUI_Juego extends javax.swing.JFrame {
         btnSiguiente = new javax.swing.JButton();
         btnAnterior = new javax.swing.JButton();
         pnlContenidoPregunta = new javax.swing.JPanel();
-        lblFondoVidas = new javax.swing.JLabel();
         lblVidas = new javax.swing.JLabel();
         lblRacha = new javax.swing.JLabel();
         lblPuntos = new javax.swing.JLabel();
         lblNivel = new javax.swing.JLabel();
+        lblFondoPuntos = new javax.swing.JLabel();
+        lblFondoNivel1 = new javax.swing.JLabel();
+        lblFondoNivel = new javax.swing.JLabel();
+        lblFondoRacha = new javax.swing.JLabel();
+        lblFondoVidas = new javax.swing.JLabel();
         lblOperacion = new javax.swing.JLabel();
         lblPregunta = new javax.swing.JLabel();
         btnVolverMenu = new javax.swing.JButton();
@@ -128,25 +132,36 @@ public class GUI_Juego extends javax.swing.JFrame {
 
         pnlBack.add(pnlContenidoPregunta, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 170, -1, -1));
 
-        lblFondoVidas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/imagen de vidas.png"))); // NOI18N
-        lblFondoVidas.setText("jLabel1");
-        pnlBack.add(lblFondoVidas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 80, 30));
-
-        lblVidas.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
+        lblVidas.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 10)); // NOI18N
         lblVidas.setText("Vida");
-        pnlBack.add(lblVidas, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
+        pnlBack.add(lblVidas, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 50, 10));
 
-        lblRacha.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
-        lblRacha.setText("Racha");
-        pnlBack.add(lblRacha, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 10, -1, -1));
+        lblRacha.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 10)); // NOI18N
+        lblRacha.setText(" Racha");
+        pnlBack.add(lblRacha, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 0, 50, 30));
 
-        lblPuntos.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
-        lblPuntos.setText("Puntos");
-        pnlBack.add(lblPuntos, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, -1, -1));
+        lblPuntos.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 10)); // NOI18N
+        lblPuntos.setText(" Puntos");
+        pnlBack.add(lblPuntos, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 0, -1, 30));
 
-        lblNivel.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
+        lblNivel.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 10)); // NOI18N
         lblNivel.setText("Nivel");
-        pnlBack.add(lblNivel, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 10, -1, -1));
+        pnlBack.add(lblNivel, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 10, -1, -1));
+
+        lblFondoPuntos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Amarrillo.png"))); // NOI18N
+        pnlBack.add(lblFondoPuntos, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 0, -1, 30));
+
+        lblFondoNivel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Morado.png"))); // NOI18N
+        pnlBack.add(lblFondoNivel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 10, -1, -1));
+
+        lblFondoNivel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Morado.png"))); // NOI18N
+        pnlBack.add(lblFondoNivel, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 10, -1, -1));
+
+        lblFondoRacha.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Naranja.png"))); // NOI18N
+        pnlBack.add(lblFondoRacha, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 0, -1, 30));
+
+        lblFondoVidas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Rojo.png"))); // NOI18N
+        pnlBack.add(lblFondoVidas, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 50, 30));
 
         lblOperacion.setFont(new java.awt.Font("Showcard Gothic", 1, 18)); // NOI18N
         pnlBack.add(lblOperacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 130, 240, 30));
@@ -224,6 +239,10 @@ public class GUI_Juego extends javax.swing.JFrame {
     private javax.swing.JButton btnSiguiente;
     private javax.swing.JButton btnVolverMenu;
     private javax.swing.JLabel lblFondo;
+    private javax.swing.JLabel lblFondoNivel;
+    private javax.swing.JLabel lblFondoNivel1;
+    private javax.swing.JLabel lblFondoPuntos;
+    private javax.swing.JLabel lblFondoRacha;
     private javax.swing.JLabel lblFondoVidas;
     private javax.swing.JLabel lblNivel;
     private javax.swing.JLabel lblOperacion;
