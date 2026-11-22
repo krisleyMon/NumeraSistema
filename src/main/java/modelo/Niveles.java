@@ -88,6 +88,8 @@ public abstract class Niveles implements Validar{
 
     public abstract String getOperaciones();
     
+    public abstract String[] getOpciones();
+    
     @Override
     public abstract boolean ValidarRespuesta(String respuesta);
     
