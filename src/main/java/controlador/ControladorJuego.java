@@ -13,7 +13,7 @@ import modelo.Niveles;
 import modelo.Piramide;
 import vista.GUI_Juego;
 import vista.GUI_Portada;
-
+import controlador.ReproductorDeSonidos;
 /**
  *
  * @author cisaa
@@ -137,6 +137,7 @@ public class ControladorJuego implements ActionListener {
 
         //Debemos elegir si es joptionPane o vista
         volverMenu();
+   
     }//Fin metodo
 
 }//Fin de la clase
