@@ -30,7 +30,7 @@ public class BancoPreguntas {
    nivel[0][1] = new Nivel1(opciones2,"4","Cuanto es 10-6?");
    nivel[0][2] = new Nivel1(opciones3,"12","Cuanto es 10+2?");
    nivel[0][3] = new Nivel1(opciones4,"4","Cuanto es 7-3?");
-   nivel[0][4] = new Nivel1(opciones5,"11","Cuanto es 5+6'");
+   nivel[0][4] = new Nivel1(opciones5,"11","Cuanto es 5+6?");
  //Fin del nivel 1
   
   
