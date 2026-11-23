@@ -61,7 +61,7 @@ public class GUI_Resultados extends javax.swing.JFrame {
 
         lblResultadosPartida.setFont(new java.awt.Font("Showcard Gothic", 0, 18)); // NOI18N
         lblResultadosPartida.setText("jLabel1");
-        Pln_Resultados.add(lblResultadosPartida, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 30, 370, 300));
+        Pln_Resultados.add(lblResultadosPartida, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 0, 390, 380));
 
         lbl_ResultadosNivel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Expli.png"))); // NOI18N
         Pln_Resultados.add(lbl_ResultadosNivel, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, 430, 330));

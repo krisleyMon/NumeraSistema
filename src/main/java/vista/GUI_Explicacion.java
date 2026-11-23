@@ -85,7 +85,7 @@ public class GUI_Explicacion extends javax.swing.JFrame {
         btnVolver.setBorderPainted(false);
         btnVolver.setContentAreaFilled(false);
         btnVolver.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/images/BackOff.png"))); // NOI18N
-        pnlBack.add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 330, -1, -1));
+        pnlBack.add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 340, 160, 60));
 
         btnJugar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ComOff.png"))); // NOI18N
         btnJugar.setBorderPainted(false);
@@ -102,7 +102,7 @@ public class GUI_Explicacion extends javax.swing.JFrame {
         btnSiguiente.setBorderPainted(false);
         btnSiguiente.setContentAreaFilled(false);
         btnSiguiente.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/images/siguienteOn.png"))); // NOI18N
-        pnlBack.add(btnSiguiente, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 150, -1, -1));
+        pnlBack.add(btnSiguiente, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 130, -1, -1));
 
         btnAnterior.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/AnteriorOff (2).png"))); // NOI18N
         btnAnterior.setBorderPainted(false);
@@ -132,7 +132,7 @@ public class GUI_Explicacion extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlBack, javax.swing.GroupLayout.PREFERRED_SIZE, 401, Short.MAX_VALUE)
+            .addComponent(pnlBack, javax.swing.GroupLayout.DEFAULT_SIZE, 401, Short.MAX_VALUE)
         );
 
         pack();

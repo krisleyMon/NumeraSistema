@@ -26,9 +26,9 @@ public class InfoPartida {
 
         informacion.add("¡PARTIDA FINALIZADA NIVEL1!"
 
-                + "\nRacha de respuestas correctas"+jugador.getRacha()
+                + "\nRacha de respuestas correctas:"+jugador.getRacha()
                 +"\nTotal Puntos:"+jugador.getPuntos()
-                +"\n Total de vidas de partida"+jugador.getNivelActual()
+                +"\n Total de vidas de partida:"+jugador.getVidas()
         );
                 
         
