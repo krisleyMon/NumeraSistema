@@ -12,8 +12,6 @@ import java.awt.event.ActionListener;
  * @author cisaa
  */
 public class GUI_Juego extends javax.swing.JFrame {
-    
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(GUI_Juego.class.getName());
  
     private PanelMulti panelMulti;
     private java.awt.CardLayout tarjetas;
@@ -57,7 +55,17 @@ public class GUI_Juego extends javax.swing.JFrame {
     public void habilitarRespuestas(boolean habilitar) {
         panelMulti.habilitarOpciones(habilitar);
     }
-  
+  //Cambia el color de la opcion selecionada 
+    public void cambioColor(int opcion,boolean correcta){
+      //Envia la informacion al panel  
+       panelMulti.CambiarColor(opcion, correcta);  
+    }
+    
+    //Restaurar los colores 
+    public void restaurarColores(){
+        panelMulti.restaurarColor();
+    }
+     
     public void mostrarPregunta(String pregunta){
         lblOperacion.setText(pregunta);
     }
