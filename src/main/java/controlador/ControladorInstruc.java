@@ -19,12 +19,13 @@ public class ControladorInstruc implements ActionListener {
     private GUI_Instrucciones vistaInstruc;
     private GUI_Portada vista;
     private NivelInformacion instruciones;
+  
     public ControladorInstruc(GUI_Instrucciones vistaInstruc, GUI_Portada vista) {
         this.vistaInstruc = vistaInstruc;
         this.vista = vista;
         this.instruciones = new NivelInformacion();
         vistaInstruc.addButtonListener(this);
-   InstrucionesUsuario();
+        InstrucionesUsuario();
     }
 
  public void InstrucionesUsuario(){

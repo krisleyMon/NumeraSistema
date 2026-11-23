@@ -13,7 +13,10 @@ import modelo.Niveles;
 import modelo.Piramide;
 import vista.GUI_Juego;
 import vista.GUI_Portada;
+import controlador.ReproductorDeSonidos;
 
+import modelo.InfoPartida;
+import vista.GUI_Resultados;
 /**
  *
  * @author cisaa
@@ -26,7 +29,6 @@ public class ControladorJuego implements ActionListener {
     private Niveles preguntaActual;
     private Piramide piramide;
     private Jugador jugador;
-
     private int nivelActual = 0; //0 es igual al nivel1
     private int numeroPregunta = 0; //0 es igual al apregunta número 1
     private boolean preguntaRespondida = false; //Esto para que cada pregunta inicie en falsa
@@ -50,6 +52,13 @@ public class ControladorJuego implements ActionListener {
             case "MENU": //Menú
                 volverMenu();
                 break;
+             case "SIGUIENTE":
+                siguientePregunta();
+                break;
+            case "ANTERIOR":
+               PreguntaAnterior();
+                break;
+            
             case "OP1": //Opciones
                 responder(vistaJuego.obtenerRespuestaMultiple(1));
                 break;
@@ -62,9 +71,8 @@ public class ControladorJuego implements ActionListener {
             case "OP4":
                 responder(vistaJuego.obtenerRespuestaMultiple(4));
                 break;
-            case "SIGUIENTE":
-                //Siguiente ****
-                break;
+          
+        
         }//Fin switch
     }//Fin metodo
 
@@ -94,7 +102,7 @@ public class ControladorJuego implements ActionListener {
         if (!jugador.tieneVidas()) { //Si el jugador no tiene vidas esto reinicia el nivel
             reiniciarNivel();
         } else if (numeroPregunta == preguntaActual.getCantidadEjercicios() - 1) {
-            terminarNivel();
+           // terminarNivel();
         }//Fin de if else
     }//Fin metodo
 
@@ -115,16 +123,42 @@ public class ControladorJuego implements ActionListener {
                 jugador.getPuntos(), jugador.getVidas(), jugador.getRacha());
     }//Fin metodo
 
+   public void mostrarResultados(){
+      GUI_Resultados vistaResultados = new GUI_Resultados();
+      InfoPartida info = new InfoPartida(jugador);
+      ControladorInfoNivel controlador = new ControladorInfoNivel(vistaResultados, info, vista);
+      vistaJuego.dispose();
+      vistaResultados.setLocationRelativeTo(null);
+      vistaResultados.setVisible(true);
+        
+       
+   }
+    
+    
+    
+    
     private void siguientePregunta(){
         if(!preguntaRespondida){
             return;
         }//Fin if
-        
-        numeroPregunta++;
+        if(numeroPregunta< preguntaActual.getCantidadEjercicios()-1){
+         numeroPregunta++;
         cargarPregunta();
+        } else{
+        mostrarResultados();
+        }
+       
     }//Fin metodo
     
-    //Esto para cuando el jugador se queda sin vidas, se debe de reiniciar el nivel actual
+  public void PreguntaAnterior(){
+      if(numeroPregunta>0){
+          numeroPregunta--;
+          cargarPregunta();
+      }
+  }
+    
+
+//Esto para cuando el jugador se queda sin vidas, se debe de reiniciar el nivel actual
     private void reiniciarNivel() {
         //Debemos elegir si es joptionPane o vista *****
         jugador.reiniciarVidas();
@@ -132,12 +166,13 @@ public class ControladorJuego implements ActionListener {
         cargarPregunta();
     }//Fin metodo
 
-    private void terminarNivel() {
-        piramide.completarNivel(nivelActual + 1); //Desbloquea el siguiente nivel
-        jugador.agregarvida(); //Esto es para su vida extra
+   private void terminarNivel() {
+     piramide.completarNivel(nivelActual + 1); //Desbloquea el siguiente nivel
+     jugador.agregarvida(); //Esto es para su vida extra
 
         //Debemos elegir si es joptionPane o vista *****
-        volverMenu();
+    volverMenu();
+   
     }//Fin metodo
 
 }//Fin de la clase

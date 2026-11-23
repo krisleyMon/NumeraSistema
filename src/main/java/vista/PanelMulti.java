@@ -30,7 +30,7 @@ public class PanelMulti extends javax.swing.JPanel {
         btnOp1 = new javax.swing.JButton();
         btnOp2 = new javax.swing.JButton();
         btnOp3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        btnOp4 = new javax.swing.JButton();
 
         setOpaque(false);
 
@@ -43,8 +43,8 @@ public class PanelMulti extends javax.swing.JPanel {
         btnOp3.setText("jButton3");
         btnOp3.setPreferredSize(new java.awt.Dimension(100, 30));
 
-        jButton4.setText("jButton4");
-        jButton4.setPreferredSize(new java.awt.Dimension(100, 30));
+        btnOp4.setText("jButton4");
+        btnOp4.setPreferredSize(new java.awt.Dimension(100, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -58,7 +58,7 @@ public class PanelMulti extends javax.swing.JPanel {
                 .addGap(49, 49, 49)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnOp2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnOp4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(10, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -71,7 +71,7 @@ public class PanelMulti extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnOp3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnOp4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(10, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -80,7 +80,7 @@ public void mostrarOpciones(String[] opciones) {
     btnOp1.setText(opciones[0]);
     btnOp2.setText(opciones[1]);
     btnOp3.setText(opciones[2]);
-    jButton4.setText(opciones[3]);
+    btnOp4.setText(opciones[3]);
 }
 
 // Habilita los botones
@@ -88,7 +88,7 @@ public void habilitarOpciones(boolean habilitar) {
     btnOp1.setEnabled(habilitar);
     btnOp2.setEnabled(habilitar);
     btnOp3.setEnabled(habilitar);
-    jButton4.setEnabled(habilitar);
+    btnOp4.setEnabled(habilitar);
 }
 
 // Conecta los botones con el controlador.
@@ -96,11 +96,11 @@ public void addButtonListener(ActionListener listener) {
     btnOp1.setActionCommand("OP1");
     btnOp2.setActionCommand("OP2");
     btnOp3.setActionCommand("OP3");
-    jButton4.setActionCommand("OP4");
+    btnOp4.setActionCommand("OP4");
     btnOp1.addActionListener(listener);
     btnOp2.addActionListener(listener);
     btnOp3.addActionListener(listener);
-    jButton4.addActionListener(listener);
+    btnOp4.addActionListener(listener);
 }
 
 // Obtiene el texto de la opción seleccionada.
@@ -113,16 +113,56 @@ public String obtenerRespuesta(int opcion) {
         case 3:
             return btnOp3.getText();
         case 4:
-            return jButton4.getText();
+            return btnOp4.getText();
         default:
             return "";
     }
+}
+
+public void CambiarColor(int opcion,boolean correcta){
+ //Guarda el color que se va utilizar 
+    java.awt.Color color;
+  
+ if(correcta){
+   //Si la respuesta es correcta se vuelev verde   
+ color = java.awt.Color.GREEN;
+ 
+ }else{
+  //si es incorrecta roja 
+     color = java.awt.Color.RED;
+ }
+ //Identifica el boton selecinado por el jugador 
+ switch(opcion){
+     
+     case 1:
+        btnOp1.setBackground(color);
+         break;
+     case 2:
+        btnOp2.setBackground(color);
+         break;
+     case 3:
+        btnOp3.setBackground(color);
+         break;
+     
+     case 4:
+        btnOp4.setBackground(color);
+         break;  
+     
+ }
+
+}
+//Volver a los botones a la normalidad 
+public void restaurarColor(){
+ btnOp1.setBackground(null);
+ btnOp2.setBackground(null);   
+ btnOp3.setBackground(null);  
+ btnOp4.setBackground(null);
 }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnOp1;
     private javax.swing.JButton btnOp2;
     private javax.swing.JButton btnOp3;
-    private javax.swing.JButton jButton4;
+    private javax.swing.JButton btnOp4;
     // End of variables declaration//GEN-END:variables
 }

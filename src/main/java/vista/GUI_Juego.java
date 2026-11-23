@@ -4,6 +4,7 @@
  */
 package vista;
 
+import controlador.ReproductorDeSonidos;
 import java.awt.event.ActionListener;
 
 /**
@@ -11,17 +12,16 @@ import java.awt.event.ActionListener;
  * @author cisaa
  */
 public class GUI_Juego extends javax.swing.JFrame {
-    
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(GUI_Juego.class.getName());
  
     private PanelMulti panelMulti;
     private java.awt.CardLayout tarjetas;
     /**
      * Creates new form GUI_Juego
      */
-    public GUI_Juego() {
+    public GUI_Juego() { 
         initComponents();
         configurarPaneles();
+    ReproductorDeSonidos.reproductorMusica("Ambientacion.mp3.mpeg");
     }
     
     public void addButtonListener(ActionListener listener){ 
@@ -55,7 +55,17 @@ public class GUI_Juego extends javax.swing.JFrame {
     public void habilitarRespuestas(boolean habilitar) {
         panelMulti.habilitarOpciones(habilitar);
     }
-  
+  //Cambia el color de la opcion selecionada 
+    public void cambioColor(int opcion,boolean correcta){
+      //Envia la informacion al panel  
+       panelMulti.CambiarColor(opcion, correcta);  
+    }
+    
+    //Restaurar los colores 
+    public void restaurarColores(){
+        panelMulti.restaurarColor();
+    }
+     
     public void mostrarPregunta(String pregunta){
         lblOperacion.setText(pregunta);
     }
@@ -212,27 +222,7 @@ public class GUI_Juego extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ReflectiveOperationException | javax.swing.UnsupportedLookAndFeelException ex) {
-            logger.log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new GUI_Juego().setVisible(true));
-    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAnterior;
